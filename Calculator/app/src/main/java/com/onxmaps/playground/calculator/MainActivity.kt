@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
      * Use HistoryAdapter for the display
      */
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Timber.plant(Timber.DebugTree())
@@ -61,6 +60,23 @@ class MainActivity : AppCompatActivity() {
                 result.text = ""
             }
 
+        }
+
+
+        // This function appends the value to the display
+
+        fun displayValue(string: String, canClear: Boolean) {
+            if(result.text.isNotEmpty()){
+                expression.text = ""
+            }
+            if (canClear) {
+                result.text = ""
+                expression.append(string)
+            } else {
+                expression.append(result.text)
+                expression.append(string)
+                result.text = ""
+            }
         }
     }
 
