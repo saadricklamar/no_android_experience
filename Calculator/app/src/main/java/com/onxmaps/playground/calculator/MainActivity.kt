@@ -4,7 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
+import android.widget.Button
+import android.widget.TextView
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -22,5 +25,22 @@ class MainActivity : AppCompatActivity() {
      * extra time, keep and display a history of all operations done.
      * Use HistoryAdapter for the display
      */
+      lateinit var display: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        display = findViewById(R.id.display)
+    }
+
+    fun displayNumber(view: View) {
+        if(display.text == "0") {
+            display.text = ""
+            display.text = (view as Button).text
+        } else {
+            display.append((view as Button).text)
+        }
+    }
+
 
 }
