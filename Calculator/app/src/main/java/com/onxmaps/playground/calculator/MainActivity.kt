@@ -42,5 +42,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun clearDisplay(view: View) {
+        display.text = "0"
+
+    }
+
+
 
 }
