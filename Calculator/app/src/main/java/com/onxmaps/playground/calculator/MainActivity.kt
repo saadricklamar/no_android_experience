@@ -48,11 +48,24 @@ class MainActivity : AppCompatActivity() {
 
     fun addDecimal(view: View) {
         if(display.text.contains(".")) {
-            print("hi")
+            return;
         } else {
             display.append(".")
         }
     }
+
+    fun displayOperator(view: View) {
+        if( display.text.contains("x") ||
+            display.text.contains("+") ||
+            display.text.contains("-") ||
+            display.text.contains("/"))
+        {
+            return;
+        } else {
+            display.append((view as Button).text)
+        }
+    }
+
 
 
 
