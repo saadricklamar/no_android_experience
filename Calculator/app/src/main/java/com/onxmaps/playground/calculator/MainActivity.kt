@@ -43,9 +43,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clearDisplay(view: View) {
-        display.text = "0"
-
+        display.text = ""
     }
+
+    fun addDecimal(view: View) {
+        if(display.text.contains(".")) {
+            print("hi")
+        } else {
+            display.append(".")
+        }
+    }
+
 
 
 

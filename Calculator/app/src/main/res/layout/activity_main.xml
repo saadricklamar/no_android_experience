@@ -263,6 +263,7 @@
                     android:textColor="#FAFAFA"/>
 
                 <Button
+                    android:onClick="addDecimal"
                     android:id="@+id/buttonDecimal"
                     android:layout_width="wrap_content"
                     android:layout_height="95dp"
