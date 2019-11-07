@@ -73,6 +73,7 @@
                     android:layout_marginBottom="10dp" />
 
                 <Button
+                    android:onClick="displayOperator"
                     android:id="@+id/buttonDivide"
                     android:layout_width="wrap_content"
                     android:layout_height="95dp"
@@ -127,6 +128,7 @@
                     android:layout_marginBottom="10dp" />
 
                 <Button
+                    android:onClick="displayOperator"
                     android:id="@+id/buttonMultiply"
                     android:layout_width="wrap_content"
                     android:layout_height="95dp"
@@ -180,7 +182,9 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="10dp" />
 
-                <Button android:id="@+id/buttonSubtract"
+                <Button
+                    android:onClick="displayOperator"
+                    android:id="@+id/buttonSubtract"
                     android:layout_width="wrap_content"
                     android:layout_height="95dp"
                     android:text="-"
@@ -234,6 +238,7 @@
                     android:layout_marginBottom="10dp" />
 
                 <Button
+                    android:onClick="displayOperator"
                     android:id="@+id/buttonAdd"
                     android:layout_width="wrap_content"
                     android:layout_height="95dp"
