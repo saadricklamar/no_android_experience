@@ -23,16 +23,6 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 class MainActivity : AppCompatActivity() {
 
-    /**
-     * Instructions: Create a calculator that can perform 5 operations:
-     * addition, subtraction, multiplication, division, and find the
-     * remainder (modulus). The calculator should only be able to
-     * work with 2 real numbers. You will need to display the operation
-     * that is currently selected, as well as display a solution and
-     * find a way to clear your result and start over. If you have
-     * extra time, keep and display a history of all operations done.
-     * Use HistoryAdapter for the display
-     */
        lateinit var display: TextView
        var num1 = ""
        var num2 = ""
@@ -101,8 +91,12 @@ class MainActivity : AppCompatActivity() {
          var firstNumber = numList.toMutableList().removeAt(0)
          var secondNumber = numList.toMutableList().removeAt(1)
          var result = firstNumber.toFloat() / secondNumber.toFloat()
-         var stringResult = result.toString()
-         display.text = stringResult
+         var remainder = firstNumber.toFloat() % secondNumber.toFloat()
+         if(remainder.toString() == "0.0") {
+             display.text = (Integer.parseInt(firstNumber) / Integer.parseInt(secondNumber)).toString()
+         } else {
+             display.text = result.toString()
+         }
      }
 
      fun productEvaluation() {
@@ -111,8 +105,12 @@ class MainActivity : AppCompatActivity() {
          var firstNumber = numList.toMutableList().removeAt(0)
          var secondNumber = numList.toMutableList().removeAt(1)
          var result = firstNumber.toFloat() * secondNumber.toFloat()
-         var stringResult = result.toString()
-         display.text = stringResult
+         var remainder = firstNumber.toFloat() % secondNumber.toFloat()
+         if(remainder.toString() > "0.0") {
+             display.text = (Integer.parseInt(firstNumber) * Integer.parseInt(secondNumber)).toString()
+         } else {
+             display.text = result.toString()
+         }
     }
 
     fun sumEvaluation() {
@@ -121,8 +119,12 @@ class MainActivity : AppCompatActivity() {
         var firstNumber = numList.toMutableList().removeAt(0)
         var secondNumber = numList.toMutableList().removeAt(1)
         var result = firstNumber.toFloat() + secondNumber.toFloat()
-        var stringResult = result.toString()
-        display.text = stringResult
+        var remainder = firstNumber.toFloat() % secondNumber.toFloat()
+        if(remainder.toString() > "0.0") {
+            display.text = result.toString()
+        } else {
+            display.text = (Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber)).toString()
+        }
     }
 
     fun differenceEvaluation() {
@@ -131,8 +133,12 @@ class MainActivity : AppCompatActivity() {
         var firstNumber = numList.toMutableList().removeAt(0)
         var secondNumber = numList.toMutableList().removeAt(1)
         var result = firstNumber.toFloat() - secondNumber.toFloat()
-        var stringResult = result.toString()
-        display.text = stringResult
+        var remainder = firstNumber.toFloat() % secondNumber.toFloat()
+        if(remainder.toString() > "0.0") {
+            display.text =  result.toString()
+        } else {
+            display.text = (Integer.parseInt(firstNumber) - Integer.parseInt(secondNumber)).toString()
+        }
     }
 
     fun modulusEvaluation() {
@@ -140,9 +146,8 @@ class MainActivity : AppCompatActivity() {
         var numList = expression.split("%")
         var firstNumber = numList.toMutableList().removeAt(0)
         var secondNumber = numList.toMutableList().removeAt(1)
-        var result = firstNumber.toFloat() % secondNumber.toFloat()
-        var stringResult = result.toString()
-        display.text = stringResult
+        var result = (Integer.parseInt(firstNumber) % Integer.parseInt(secondNumber)).toString()
+        display.text = result
     }
 
 
