@@ -25,7 +25,8 @@
             android:text="0"
             android:maxLength="12"
             android:textColor="#020000"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:paddingRight="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,9 +47,9 @@
                     android:layout_height="95dp"
                     android:text="AC"
                     android:textSize="50sp"
-                    android:background="#928887"
-                    android:textColor="#FAFAFA"
-                    android:layout_marginBottom="10dp"/>
+                    android:background="#FAFAFA"
+                    android:textColor="#E93122"
+                    android:layout_marginBottom="10dp" />
 
                 <Button
                     android:id="@+id/buttonPlusMinus"
@@ -56,8 +57,8 @@
                     android:layout_height="95dp"
                     android:text="+/-"
                     android:textSize="50sp"
-                    android:background="#928887"
-                    android:textColor="#FAFAFA"
+                    android:background="#FAFAFA"
+                    android:textColor="#E93122"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="10dp" />
 
@@ -68,8 +69,8 @@
                     android:layout_height="95dp"
                     android:text="%"
                     android:textSize="50sp"
-                    android:background="#928887"
-                    android:textColor="#FAFAFA"
+                    android:background="#FAFAFA"
+                    android:textColor="#E93122"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="10dp" />
 
