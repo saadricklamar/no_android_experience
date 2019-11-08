@@ -1,33 +1,15 @@
 package com.onxmaps.playground.calculator
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import android.widget.Button
 import android.widget.TextView
-import android.util.Log
-
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
-import timber.log.Timber
-
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
 
 
 
 class MainActivity : AppCompatActivity() {
 
        lateinit var display: TextView
-       var num1 = ""
-       var num2 = ""
-       var operator = ""
-       var isOperatorClicked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +39,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun displayOperator(view: View) {
-        isOperatorClicked = true
         if( display.text.contains("x") ||
             display.text.contains("+") ||
             display.text.contains("-") ||
@@ -105,11 +86,10 @@ class MainActivity : AppCompatActivity() {
          var firstNumber = numList.toMutableList().removeAt(0)
          var secondNumber = numList.toMutableList().removeAt(1)
          var result = firstNumber.toFloat() * secondNumber.toFloat()
-         var remainder = firstNumber.toFloat() % secondNumber.toFloat()
-         if(remainder.toString() > "0.0") {
-             display.text = (Integer.parseInt(firstNumber) * Integer.parseInt(secondNumber)).toString()
-         } else {
+         if(firstNumber.contains(".") || secondNumber.contains(".")) {
              display.text = result.toString()
+         } else {
+             display.text = (Integer.parseInt(firstNumber) * Integer.parseInt(secondNumber)).toString()
          }
     }
 
@@ -119,8 +99,7 @@ class MainActivity : AppCompatActivity() {
         var firstNumber = numList.toMutableList().removeAt(0)
         var secondNumber = numList.toMutableList().removeAt(1)
         var result = firstNumber.toFloat() + secondNumber.toFloat()
-        var remainder = firstNumber.toFloat() % secondNumber.toFloat()
-        if(remainder.toString() > "0.0") {
+        if(firstNumber.contains(".") || secondNumber.contains(".")) {
             display.text = result.toString()
         } else {
             display.text = (Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber)).toString()
@@ -134,8 +113,8 @@ class MainActivity : AppCompatActivity() {
         var secondNumber = numList.toMutableList().removeAt(1)
         var result = firstNumber.toFloat() - secondNumber.toFloat()
         var remainder = firstNumber.toFloat() % secondNumber.toFloat()
-        if(remainder.toString() > "0.0") {
-            display.text =  result.toString()
+        if(firstNumber.contains(".") || secondNumber.contains(".")) {
+            display.text = result.toString()
         } else {
             display.text = (Integer.parseInt(firstNumber) - Integer.parseInt(secondNumber)).toString()
         }
@@ -146,12 +125,12 @@ class MainActivity : AppCompatActivity() {
         var numList = expression.split("%")
         var firstNumber = numList.toMutableList().removeAt(0)
         var secondNumber = numList.toMutableList().removeAt(1)
-        var result = (Integer.parseInt(firstNumber) % Integer.parseInt(secondNumber)).toString()
-        display.text = result
+        var result = firstNumber.toFloat() % secondNumber.toFloat()
+        if(firstNumber.contains(".") || secondNumber.contains(".")) {
+            display.text = result.toString()
+        } else {
+            display.text = (Integer.parseInt(firstNumber) % Integer.parseInt(secondNumber)).toString()
+        }
     }
-
-
-
-
 
 }
