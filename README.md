@@ -27,7 +27,7 @@ The calculator will need to take two real numbers as input. It will also need to
 
 ## Takeaways 
 
-* Styling XML remind me of certain inline styling techniques in React Native and NativeScript. The "@drawable" reminded me of how I source background images in HTML. 
+* Styling XML remind me of certain inline styling techniques in React Native and NativeScript. The "@drawable" reminded me of how I source background images in CSS3. 
 
 * I found some type conversion methods from JavaScript, such as contains(), toString(), split(), etc., to work similarly in Kotlin/Java. 
 
